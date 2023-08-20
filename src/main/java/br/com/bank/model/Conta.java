@@ -8,6 +8,7 @@ public class Conta {
 
 	public Conta(String cpf) {
 		this.cpf = cpf;
+		this.saldo = 0;
 	}
 
 	public double getSaldo() {
@@ -17,4 +18,9 @@ public class Conta {
 	public String getCpf() {
 		return cpf;
 	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
 }

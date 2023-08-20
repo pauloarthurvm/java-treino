@@ -20,14 +20,19 @@ public class Banco {
     public void adicionarConta(Conta conta) {
         contas.add(conta);
     }
-    public Conta pesquisarContaDoCliente(String cpf) {
-        Conta c = null;
-        for (int i = 0; i < contas.size(); i++) {
-            if (contas.get(i).getCpf().equals(cpf)) {
-                c = contas.get(i);
-            }
-        }
-        return c;
+
+    public Optional<Conta> pesquisarContaDoCliente(String cpf) {
+//        Conta c = null;
+//        for (Conta conta : contas) {
+//            if (conta.getCpf().equals(cpf)) {
+//                c = conta;
+//            }
+//        }
+//        return c;
+
+        Optional<Conta> contaResult = contas.stream().filter(o -> o.getCpf().equals(cpf)).findFirst();
+        return contaResult;
+//        return contas.stream().filter(o -> o.getCpf().equals(cpf)).findFirst();
     }
 
     public List<Conta> listarContasAltaRenda() {
@@ -36,5 +41,13 @@ public class Banco {
 
     private List<Conta> filtrarContas(Predicate<Conta> filtro) {
         return contas.stream().filter(filtro).collect(Collectors.toList());
+    }
+
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public int getTotalDeContas() {
+        return contas.size();
     }
 }

@@ -23,6 +23,8 @@ public class Aluno {
         this.email = email;
     }
 
+    public Aluno() { }
+
     public Long getAlunoId() {
         return alunoId;
     }
@@ -41,5 +43,14 @@ public class Aluno {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "alunoId=" + alunoId +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
